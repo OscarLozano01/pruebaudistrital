@@ -1,4 +1,4 @@
-# pruebaudistrital
+# prueba udistrital
 Prueba técnica de ingreso como desarrollador perfil tecnólogo
 Pasos para instalar en local
 1 XAMPP
