@@ -24,6 +24,8 @@ Este documento tiene como objetivo establecer los lineamientos para la generaci√
 
 ![Imagen de ejemplo 3](img/4.png)
 
+![Imagen de ejemplo 4](img/6.png)
+
 #### Instalaci√≥n de dependencias:
 
 - Instalar las dependencias necesarias para trabajar con MongoDB en NestJs, como `mongoose` y `@nestjs/mongoose`.
