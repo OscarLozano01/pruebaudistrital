@@ -12,7 +12,7 @@ Este documento tiene como objetivo establecer los lineamientos para la generaci√
 
 #### Creaci√≥n del proyecto NestJs:
 
-- Instalar el CLI de NestJs globalmente, Utilizar el comando `npm install -g @nestjs/cli`.
+- Instalar el CLI de NestJs globalmente, Utilizar el comando `npm install -g @nestjs/cli`. üåü
 
 ![Imagen de ejemplo](img/2.png)
 
@@ -27,4 +27,4 @@ Este documento tiene como objetivo establecer los lineamientos para la generaci√
 #### Instalaci√≥n de dependencias:
 
 - Instalar las dependencias necesarias para trabajar con MongoDB en NestJs, como `mongoose` y `@nestjs/mongoose`.
-[![GitHub](https://img.shields.io/badge/GitHub-Profile-blue?style=flat&logo=github)](https://github.com/OscarLozano01)
+
