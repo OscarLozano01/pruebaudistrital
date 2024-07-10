@@ -31,7 +31,9 @@ Este documento tiene como objetivo establecer los lineamientos para la generaci√
 - Instalar las dependencias necesarias para trabajar con MongoDB en NestJs, como `npm install mongoose class-validator @nestjs/swagger`.
 
 ![Imagen de ejemplo 2](img/7.png)
----
+
+**___**
+
 ### 2. Configuraci√≥n de variables de entorno
 
 
