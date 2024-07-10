@@ -12,7 +12,7 @@ Este documento tiene como objetivo establecer los lineamientos para la generaci�
 
 #### Creación del proyecto NestJs:
 
-- Utilizar el comando `nest new` para crear un nuevo proyecto NestJs.
+- Utilizar el comando `nest new` para crear un nuevo proyecto NestJs. ![Imagen de ejemplo](img/2.png)
 - Seleccionar la opción "TypeScript" como lenguaje de programación.
 - Elegir la opción "No" para la configuración de ORM (Object-Relational Mapping) ya que se utilizará MongoDB.
 
