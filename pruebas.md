@@ -27,3 +27,4 @@ Este documento tiene como objetivo establecer los lineamientos para la generaci√
 #### Instalaci√≥n de dependencias:
 
 - Instalar las dependencias necesarias para trabajar con MongoDB en NestJs, como `mongoose` y `@nestjs/mongoose`.
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-blue?style=flat&logo=github)](https://github.com/OscarLozano01)
