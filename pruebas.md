@@ -27,8 +27,8 @@ Este documento tiene como objetivo establecer los lineamientos para la generaci√
 - Inicializar el proyecto NestJs:
 
 <div>
-    <img src="img/4.png" alt="Imagen de ejemplo 3" style="float: left; margin-right: 20px; width: 500px;"/>
-    <img src="img/6.png" alt="Imagen de ejemplo 4" style="float: right; margin-left: 20px; width: 500px;"/>
+    <img src="img/6.png" alt="Imagen de ejemplo 3" style="float: left; margin-right: 20px; width: 500px;"/>
+    <img src="img/4.png" alt="Imagen de ejemplo 4" style="float: right; margin-left: 20px; width: 500px;"/>
 </div>
 
 #### Instalaci√≥n de dependencias:
