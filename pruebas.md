@@ -12,7 +12,7 @@ Este documento tiene como objetivo establecer los lineamientos para la generaci�
 
 #### Creación del proyecto NestJs:
 
-- Instalar el CLI de NestJs globalmente, Utilizar el comando `npm install -g @nestjs/cli`. 🌟
+- Instalar el CLI de NestJs globalmente, Utilizar el comando `npm install -g @nestjs/cli`.
 
 ![Imagen de ejemplo](img/2.png)
 
