@@ -32,7 +32,7 @@ Este documento tiene como objetivo establecer los lineamientos para la generaci√
 
 ![Imagen de ejemplo 2](img/7.png)
 
-*---*
+---
 
 ### 2. Configuraci√≥n de variables de entorno
 
