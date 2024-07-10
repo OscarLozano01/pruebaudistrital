@@ -4,7 +4,6 @@
 
 <h1 align="center"><b>Documentación para la generación y definición de la estructura de proyecto en APIs con base de datos no relacionales (MongoDB) bajo la tecnología NestJs</b></h1>
 
----
 
 ### Introducción
 
