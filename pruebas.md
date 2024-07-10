@@ -43,6 +43,8 @@ Este documento tiene como objetivo establecer los lineamientos para la generaci√
 
 - Creaci√≥n de un archivo `.env`
 
+Ejemplo:
+
 ```shell
 HORARIOS_CRUD_DB=[nombre de la base de datos]
 HORARIOS_CRUD_PASS=[password del usuario]
