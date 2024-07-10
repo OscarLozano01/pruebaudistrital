@@ -16,7 +16,10 @@ Este documento tiene como objetivo establecer los lineamientos para la generaci�
 
 ![Imagen de ejemplo](img/2.png)
 
-- Seleccionar la opción "TypeScript" como lenguaje de programación.
+- Crear un nuevo directorio para el proyecto:
+
+![Imagen de ejemplo 2](img/3.png)
+
 - Elegir la opción "No" para la configuración de ORM (Object-Relational Mapping) ya que se utilizará MongoDB.
 
 #### Instalación de dependencias:
