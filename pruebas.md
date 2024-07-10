@@ -20,7 +20,9 @@ Este documento tiene como objetivo establecer los lineamientos para la generaci�
 
 ![Imagen de ejemplo 2](img/3.png)
 
-- Elegir la opción "No" para la configuración de ORM (Object-Relational Mapping) ya que se utilizará MongoDB.
+- Inicializar el proyecto NestJs:
+
+![Imagen de ejemplo 3](img/4.png)
 
 #### Instalación de dependencias:
 
