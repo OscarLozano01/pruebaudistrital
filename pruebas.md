@@ -55,7 +55,7 @@ HORARIOS_CRUD_AUTH_DB=[base de datos de autorizacion]
 HORARIOS_CRUD_HTTP_PORT=[puerto de ejecucion]
 ```
 
-### 2. Refactorización del proyecto para manejar controlador, modelos y servicios
+### 3. Refactorización del proyecto para manejar controlador, modelos y servicios
 
 Se deben crear manualmente las carpetas con la siguiente estructura, ya que por defecto NestJs no las crea:
 
@@ -88,4 +88,7 @@ type APIResponse struct {
 	Data    interface{} `json:"data"`
 }
 ```
+
+### 4. Manejo de error, filtros (query), logger, healtcheck
+
 
