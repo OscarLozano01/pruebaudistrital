@@ -57,6 +57,7 @@ HORARIOS_CRUD_HTTP_PORT=[puerto de ejecucion]
 
 ### 2. Refactorización del proyecto para manejar controlador, modelos y servicios
 
+```shell
 +---src
 |   |   app.controller.spec.ts
 |   |   app.controller.ts
@@ -70,6 +71,7 @@ HORARIOS_CRUD_HTTP_PORT=[puerto de ejecucion]
 |   +---logger
 |   +---models
 |   \---services
+```
 
 
 
