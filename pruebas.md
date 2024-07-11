@@ -75,7 +75,7 @@ Se deben crear manualmente las carpetas con la siguiente estructura, ya que por 
 |   \---services
 ```
 
-![Imagen de ejemplo](img/9.png)
+![Imagen de ejemplo](img/9.jpg)
 
 Dentro del controlador se debe tener en cuenta la estructura de respuesta:
 ```shell
