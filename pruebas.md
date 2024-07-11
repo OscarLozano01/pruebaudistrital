@@ -117,6 +117,21 @@ export class LoggerMiddleware implements NestMiddleware {
 
 - `Logger`: Se usa para registrar los mensajes de log. Se instancia con el contexto 'HTTP'.
 
+#### Método `use`
+```typescript
+use(request: Request, response: Response, next: NextFunction): void {
+    const { method, originalUrl, body } = request;
+    this.logger.log(`[REQ] ${method} ${originalUrl} ${JSON.stringify(body)}`);
+```
+- `use`: Método obligatorio que se ejecuta para cada solicitud HTTP. Toma tres parámetros:
+
+-- `request`: La solicitud HTTP.
+-- `response`: La respuesta HTTP.
+-- `next`: La función que se llama para pasar el control al siguiente middleware.
+
+- Extrae el método HTTP (`method`), la URL original (`originalUrl`) y el cuerpo de la solicitud (`body`).
+
+- Registra la solicitud entrante con el método log del Logger.
 
 
 ---
