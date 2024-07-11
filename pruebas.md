@@ -100,8 +100,8 @@ Organizar el código del Logger en carpeta separada llamada `logger`. Este códi
 import { Injectable, NestMiddleware, Logger } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 ```
-- @nestjs/common: Importa los decoradores y las clases básicas de NestJS.
-- express: Importa las interfaces Request, Response y NextFunction de Express.
+- `@nestjs/common`: Importa los decoradores y las clases básicas de NestJS.
+- `express`: Importa las interfaces Request, Response y NextFunction de Express.
 
 ---
 
