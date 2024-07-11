@@ -105,15 +105,17 @@ import { Request, Response, NextFunction } from 'express';
 
 #### Decorador @Injectable
 `@Injectable()`
-Este decorador marca la clase LoggerMiddleware como un servicio que puede ser inyectado y gestionado por el contenedor de dependencias de NestJS.
+
+- Este decorador marca la clase LoggerMiddleware como un servicio que puede ser inyectado y gestionado por el contenedor de dependencias de NestJS.
 
 #### Clase LoggerMiddleware
 ```typescript
 export class LoggerMiddleware implements NestMiddleware {
     private logger = new Logger('HTTP');
 ```
-`LoggerMiddleware`: Implementa la interfaz NestMiddleware de NestJS.
-`Logger`: Se usa para registrar los mensajes de log. Se instancia con el contexto 'HTTP'.
+- `LoggerMiddleware`: Implementa la interfaz NestMiddleware de NestJS.
+
+- `Logger`: Se usa para registrar los mensajes de log. Se instancia con el contexto 'HTTP'.
 
 
 
