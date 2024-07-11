@@ -80,7 +80,7 @@ Ejemplo:
 ![Imagen de ejemplo](img/9.JPG)
 
 Dentro del controlador se debe tener en cuenta la estructura de respuesta:
-```nestjs
+```typescript
 type APIResponse struct {
 	Success bool        `json:"success"`
 	Status  int         `json:"status"`
@@ -96,7 +96,7 @@ Organizar el código del Logger en carpeta separada llamada `logger`. Este códi
 
 #### Importaciones
 
-```nestjs
+```typescript
 import { Injectable, NestMiddleware, Logger } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 ```
