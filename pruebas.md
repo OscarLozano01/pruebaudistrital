@@ -233,6 +233,15 @@ export class check {
 
 `static count: number = 0`: Inicializa `count` en 0 y permite que se acceda y modifique de manera global en el contexto de la clase `AppService`.
 
+#### Observaciones:
+Se necesita hacer el llamado de LoggerMiddleware en `app.module.ts`.
+```typescript
+export class AppModule {
+  configure(consumer: MiddlewareConsumer): void {
+    consumer.apply(LoggerMiddleware).forRoutes('*');
+  }
+}
+```
 ---
 
 ### 5. Generación de swagger y detalle de .drone para despliegue <a name="generacion-de-swagger"></a>
