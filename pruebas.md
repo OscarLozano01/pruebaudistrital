@@ -92,7 +92,14 @@ type APIResponse struct {
 ### 4. Manejo de error, filtros (query), logger, healtcheck <a name="manejo-de-error"></a>
 
 #### Logger:
-Organizar el código del proyecto en carpetas separada `logger`.
+Organizar el código del Logger en carpeta separada llamada `logger`. Este código define un middleware en NestJS para registrar las solicitudes HTTP entrantes y las respuestas salientes. A continuación, se explica cada sección del código:
+
+#### Importaciones
+
+```nestjs
+import { Injectable, NestMiddleware, Logger } from '@nestjs/common';
+import { Request, Response, NextFunction } from 'express';
+```
 
 ---
 
