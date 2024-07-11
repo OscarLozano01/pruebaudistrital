@@ -75,6 +75,8 @@ Se deben crear manualmente las carpetas con la siguiente estructura, ya que por 
 |   \---services
 ```
 
+![Imagen de ejemplo](img/9.png)
+
 Dentro del controlador se debe tener en cuenta la estructura de respuesta:
 ```shell
 type APIResponse struct {
