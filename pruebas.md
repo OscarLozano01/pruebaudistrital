@@ -242,6 +242,195 @@ export class AppModule {
   }
 }
 ```
+
+#### Filtros (query):
+
+El siguiente código se ubica en src/filters/filters.service.ts, Este código define un servicio en NestJS para procesar y generar filtros de consulta basados en criterios definidos en un objeto DTO (Data Transfer Object). A continuación, se explica cada sección del código:
+
+#### Importaciones
+```typescript
+import { FilterDto } from './dto/filter.dto';
+```
+- `FilterDto`: Importa la clase `FilterDto` que contiene los criterios de filtro.
+
+#### Clase FiltersService
+```typescript
+export class FiltersService {
+    constructor(private readonly filterDto: FilterDto) { }
+```
+- `FiltersService`: Clase que proporciona métodos para generar filtros de consulta.
+  
+- `filterDto`: Objeto DTO que contiene los criterios de filtro.
+
+#### Método getQuery
+```typescript
+getQuery(): Object {
+    let queryObj = {};
+    if (this.filterDto.query) {
+        const queryProperties = this.filterDto.query.split(',');
+        queryProperties.forEach(function (property) {
+            const tup = property.split(/:(.+)/);
+            const key = tup[0].split(/__(.+)/);
+            if (key[1]) {
+                switch (key[1]) {
+                    case "icontains":
+                        queryObj[key[0]] = { $regex: new RegExp(tup[1], 'i') }
+                        break;
+                    case "contains":
+                        queryObj[key[0]] = { $regex: new RegExp(tup[1]) }
+                        break;
+                    case "gt":
+                        queryObj[key[0]] = { $gt: castValue(tup[1]) }
+                        break;
+                    case "gte":
+                        queryObj[key[0]] = { $gte: castValue(tup[1]) }
+                        break;
+                    case "lt":
+                        queryObj[key[0]] = { $lt: castValue(tup[1]) }
+                        break;
+                    case "lte":
+                        queryObj[key[0]] = { $lte: castValue(tup[1]) }
+                        break;
+                    case "in":
+                        let list = tup[1].split('|')
+                        queryObj[key[0]] = { $in: [...list.map(v => castValue(v))] }
+                        break;
+                    case "not":
+                        queryObj[key[0]] = { $ne: castValue(tup[1]) }
+                        break;
+                    case "inarray":
+                        queryObj[key[0]] = { $in: [castValue(tup[1])] }
+                        break;
+                    case "isnull":
+                        if (tup[1].toLowerCase() === 'true') {
+                            queryObj[key[0]] = null;    
+                        } else {
+                            queryObj[key[0]] = { $ne: null }
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            } else {
+                queryObj[key[0]] = castValue(tup[1]);
+            }
+        });
+    }
+    return queryObj;
+}
+```
+- `getQuery`: Genera un objeto de consulta basado en los criterios de filtro especificados en `filterDto.query`.
+  
+- `queryObj`: Objeto que almacena los criterios de filtro.
+  
+- `switch`: Maneja diferentes operadores de filtro como `icontains`, `contains`, `gt`, `gte`, `lt`, `lte`, `in`, `not`, `inarray`, y `isnull`.
+
+#### Método getFields
+```typescript
+getFields(): Object {
+    let fieldsObj = {};
+    if (this.filterDto.fields) {
+        let fieldsProperties = this.filterDto.fields.split(',');
+        fieldsProperties.forEach(function (property) {
+            fieldsObj[property] = 1;
+        });
+    }
+    return fieldsObj
+}
+```
+- `getFields`: Genera un objeto de proyección para seleccionar campos específicos.
+- `fieldsObj`: Objeto que almacena los campos a proyectar.
+
+#### Método getSortBy
+```typescript
+getSortBy(): any[]{
+    let sortbyArray = [];
+    if (this.filterDto.sortby) {
+        let sortbyProperties = this.filterDto.sortby.split(',');
+        if (this.filterDto.order) {
+            let orderProperties = this.filterDto.order.split(',');
+            if (orderProperties.length == 1) {
+                let orderTerm = (this.filterDto.order == 'desc') ? -1 : 1;
+                sortbyProperties.forEach(function (property) {
+                    sortbyArray.push([property, orderTerm]);
+                });
+            } else if (sortbyProperties.length == orderProperties.length) {
+                for (let i = 0; i < sortbyProperties.length; i++) {
+                    sortbyArray.push([sortbyProperties[i], (orderProperties[i] == 'desc' ? -1 : 1)]);
+                }
+            } else {
+                sortbyProperties.forEach(function (property) {
+                    sortbyArray.push([property, 1]);
+                });
+            }
+        } else {
+            sortbyProperties.forEach(function (property) {
+                sortbyArray.push([property, 1]);
+            });
+        }
+    }
+    return sortbyArray;
+}
+```
+- `getSortBy`: Genera un array de criterios de ordenamiento.
+  
+- `sortbyArray`: Array que almacena los criterios de ordenamiento.
+
+#### Método getLimitAndOffset
+
+```typescript
+getLimitAndOffset(): Object{            
+    return {
+        skip: parseInt(this.filterDto.offset !== undefined ? this.filterDto.offset : '0'),
+        limit: parseInt(this.filterDto.limit !== undefined ? this.filterDto.limit : '10'),
+    };
+}
+```
+- `getLimitAndOffset`: Genera un objeto con los valores de skip (desplazamiento) y limit (límite de resultados).
+- `skip`: Número de resultados a omitir.
+- `limit`: Número máximo de resultados a devolver.
+
+#### Método isPopulated
+```typescript
+isPopulated(): boolean{            
+    return this.filterDto.populate === 'true';
+}
+```
+- `isPopulated`: Indica si se debe realizar la operación de población de datos (similar a un join en SQL).
+
+#### Función castValue
+```typescript
+function castValue(value: string): any {
+    if (value) {
+        const datatype = value.match(/<[^>]+>/);
+        if (datatype === null) {
+            return value;
+        } else {
+            const val = value.slice(0, value.length-3)
+            switch (datatype[0][1]) {
+                case 'n':
+                    return Number(val);
+                    break;
+                case 'd':
+                    return new Date(val);
+                    break;
+                case 'b':
+                    return value.toLowerCase() === 'true';
+                    break;
+                default:
+                    break;
+            }
+        }
+    } else {
+        return null;
+    }
+}
+```
+- `castValue`: Convierte el valor de un string a su tipo de dato correspondiente (`Number`, `Date`, `boolean`).
+
+
+
+
 ---
 
 ### 5. Generación de swagger y detalle de .drone para despliegue <a name="generacion-de-swagger"></a>
