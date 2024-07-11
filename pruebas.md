@@ -179,7 +179,59 @@ use(request: Request, response: Response, next: NextFunction): void {
 
 - Finalmente, se llama a `next()` para pasar el control al siguiente middleware o controlador en la cadena de procesamiento.
 
+#### Healtcheck:
+El siguiente código se ubica en src/app.service.ts, Este código define un servicio simple en NestJS para realizar una verificación de salud de la aplicación. A continuación, se explica cada sección del código:
 
+#### Importaciones
+ ```typescript
+import { Injectable } from '@nestjs/common';
+```
+- `@nestjs/common`: Importa el decorador `Injectable` de NestJS.
+
+#### Decorador @Injectable
+```typescript
+@Injectable()
+```
+Este decorador marca la clase AppService como un servicio que puede ser inyectado y gestionado por el contenedor de dependencias de NestJS.
+
+#### Clase AppService
+```typescript
+export class AppService {
+  healthcheck(): Object {
+    return {
+      Status: "Ok",
+      checkCount: check.count++
+    };
+  }
+}
+```
+- `AppService`: Clase que proporciona métodos de servicio para la aplicación.
+- 
+- `healthcheck`: Método que realiza una verificación de salud y retorna un objeto con el estado actual y un contador de verificaciones.
+
+#### Método healthcheck
+```typescript
+healthcheck(): Object {
+  return {
+    Status: "Ok",
+    checkCount: check.count++
+  };
+}
+```
+
+- `healthcheck`: Método que devuelve un objeto con dos propiedades:
+	- `Status`: Una cadena de texto que indica que el estado es "Ok".
+	- `checkCount`: Un contador que incrementa en uno cada vez que se llama al método.
+
+#### Clase check
+```typescript
+export class check {
+  static count: number = 0;
+}
+```
+`check`: Clase auxiliar que contiene una propiedad estática `count` utilizada para llevar un conteo de las veces que se ha realizado la verificación de salud.
+
+`static count: number = 0`: Inicializa `count` en 0 y permite que se acceda y modifique de manera global en el contexto de la clase `AppService`.
 
 ---
 
