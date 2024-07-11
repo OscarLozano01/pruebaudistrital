@@ -91,7 +91,7 @@ type APIResponse struct {
 
 ### 4. Manejo de error, filtros (query), logger, healtcheck <a name="manejo-de-error"></a>
 
-Logger:
+#### Logger:
 Organizar el código del proyecto en carpetas separada `logger`.
 
 ---
