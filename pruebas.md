@@ -135,6 +135,51 @@ use(request: Request, response: Response, next: NextFunction): void {
 
 - Registra la solicitud entrante con el método log del Logger.
 
+#### Sobrescritura de response.write y response.end
+```typescript
+    var oldWrite = response.write;
+    var oldEnd = response.end;
+    var chunks = [];
+    response.write = function (chunk: any) {
+        chunks.push(chunk);
+        return oldWrite.apply(response, arguments);
+    };
+    response.end = function (chunk: any) {
+        if (chunk) {
+            chunks.push(chunk);
+        }
+        return oldEnd.apply(response, arguments);
+    };
+```
+- Almacena las referencias originales de los métodos `write` y `end` de `response`.
+- Sobrescribe estos métodos para capturar los datos que se envían en la respuesta:
+	- `response.write`: Añade los fragmentos (`chunks`) de datos a un array.
+	- `response.end`: Añade cualquier fragmento adicional y luego llama al método original.
+
+ #### Evento response.on('finish')
+ ```typescript
+    response.on('finish', () => {
+        const { statusCode } = response;
+        const responseBody = Buffer.concat(chunks).toString('utf8');
+        this.logger.log(
+            `[RESP] ${method} ${originalUrl} ${statusCode} ${responseBody}`,
+        );
+    });
+
+    next();
+}
+```
+
+- Se registra un evento `finish` en `response` que se dispara cuando la respuesta se completa.
+
+- Dentro del evento:
+	- Se obtiene el código de estado (`statusCode`) de la respuesta.
+	- Se concatena y convierte a texto UTF-8 el contenido de la respuesta capturado en `chunks`.
+	- Se registra la respuesta saliente con el método `log` del `Logger`.
+
+- Finalmente, se llama a `next()` para pasar el control al siguiente middleware o controlador en la cadena de procesamiento.
+
+
 
 ---
 
