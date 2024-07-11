@@ -89,7 +89,12 @@ type APIResponse struct {
 }
 ```
 
-### 4. Manejo de error, filtros (query), logger, healtcheck
+### 4. Manejo de error, filtros (query), logger, healtcheck <a name="manejo-de-error"></a>
 
+Logger:
+Organizar el código del proyecto en carpetas separada `logger`.
 
-### 5. Manejo de error, filtros (query), logger, healtcheck
+---
+
+### 5. Generación de swagger y detalle de .drone para despliegue <a name="generacion-de-swagger"></a>
+---
