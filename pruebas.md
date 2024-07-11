@@ -57,6 +57,8 @@ HORARIOS_CRUD_HTTP_PORT=[puerto de ejecucion]
 
 ### 2. Refactorización del proyecto para manejar controlador, modelos y servicios
 
+Se deben crear manualmente las carpetas con la siguiente estructura, ya que por defecto NestJs no las crea:
+
 ```shell
 +---src
 |   |   app.controller.spec.ts
@@ -73,5 +75,13 @@ HORARIOS_CRUD_HTTP_PORT=[puerto de ejecucion]
 |   \---services
 ```
 
-
+Dentro del controlador se debe tener en cuenta la estructura de respuesta:
+```shell
+type APIResponse struct {
+	Success bool        `json:"success"`
+	Status  int         `json:"status"`
+	Message interface{} `json:"message"`
+	Data    interface{} `json:"data"`
+}
+```
 
