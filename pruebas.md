@@ -206,7 +206,7 @@ export class AppService {
 }
 ```
 - `AppService`: Clase que proporciona métodos de servicio para la aplicación.
-- 
+
 - `healthcheck`: Método que realiza una verificación de salud y retorna un objeto con el estado actual y un contador de verificaciones.
 
 #### Método healthcheck
