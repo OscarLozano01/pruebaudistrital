@@ -75,6 +75,8 @@ Se deben crear manualmente las carpetas con la siguiente estructura, ya que por 
 |   \---services
 ```
 
+Ejemplo:
+
 ![Imagen de ejemplo](img/9.JPG)
 
 Dentro del controlador se debe tener en cuenta la estructura de respuesta:
