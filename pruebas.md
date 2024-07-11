@@ -92,3 +92,4 @@ type APIResponse struct {
 ### 4. Manejo de error, filtros (query), logger, healtcheck
 
 
+### 5. Manejo de error, filtros (query), logger, healtcheck
